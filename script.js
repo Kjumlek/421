@@ -198,7 +198,9 @@ document.getElementById("diceC").onclick = function() {
     keep[2] = true;
   }
 }
-
+document.getElementById("backtoback").onclick = function() {
+  
+}
 
 initA();
 initB();

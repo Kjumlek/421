@@ -4,6 +4,9 @@ var yes = false;
 
 var nombreAleatoire = [];
 var animation = [];
+var clickAState = 0;
+var clickBState = 0;
+var clickCState = 0;
 
 var okButton = true;
 
@@ -191,34 +194,68 @@ document.getElementById("diceC").addEventListener("animationiteration", function
     document.getElementById("diceC").style.animation = animation[2];
 });
 
+
 document.getElementById("diceA").onclick = function() {
   if (yes == true){
     var faces = document.querySelectorAll('#diceA>.face');
-    for (var i = 0; i < faces.length; i++) {
-      faces[i].style.backgroundColor = "black";
-      faces[i].style.opacity = "0.9";
+    if (clickAState ==0){      
+      for (var i = 0; i < faces.length; i++) {
+        faces[i].style.backgroundColor = "black";
+        faces[i].style.opacity = "0.9";
+      }
+      keep[0] = true;
+      clickAState = 1;
     }
-    keep[0] = true;
+    else {
+      for (var f = 0; f < faces.length; f++) {
+        faces[f].style.backgroundColor = "red";
+        faces[f].style.opacity = "0.7";
+      }
+      keep[0] = false;
+      clickAState = 0;
+    }
   }
 }
 document.getElementById("diceB").onclick = function() {
   if (yes == true){
     var faces = document.querySelectorAll('#diceB>.face');
-    for (var i = 0; i < faces.length; i++) {
-      faces[i].style.backgroundColor = "black";
-      faces[i].style.opacity = "0.9";
+    if (clickBState ==0){      
+      for (var i = 0; i < faces.length; i++) {
+        faces[i].style.backgroundColor = "black";
+        faces[i].style.opacity = "0.9";
+      }
+      keep[1] = true;
+      clickBState = 1;
     }
-    keep[1] = true;
+    else {
+      for (var f = 0; f < faces.length; f++) {
+        faces[f].style.backgroundColor = "red";
+        faces[f].style.opacity = "0.7";
+      }
+      keep[1] = false;
+      clickBState = 0;
+    }
   }
 }
 document.getElementById("diceC").onclick = function() {
   if (yes == true){
     var faces = document.querySelectorAll('#diceC>.face');
-    for (var i = 0; i < faces.length; i++) {
-      faces[i].style.backgroundColor = "black";
-      faces[i].style.opacity = "0.9";
+    if (clickCState ==0){      
+      for (var i = 0; i < faces.length; i++) {
+        faces[i].style.backgroundColor = "black";
+        faces[i].style.opacity = "0.9";
+      }
+      keep[2] = true;
+      clickCState = 1;
     }
-    keep[2] = true;
+    else {
+      for (var f = 0; f < faces.length; f++) {
+        faces[f].style.backgroundColor = "red";
+        faces[f].style.opacity = "0.7";
+      }
+      keep[2] = false;
+      clickCState = 0;
+    }
   }
 }
 document.getElementById("backtoback").onclick = function() {

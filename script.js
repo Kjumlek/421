@@ -37,7 +37,8 @@ function initC() {
 
 
 
-document.getElementById("play").onclick = function() {
+//document.getElementById("play").onclick = function() {
+document.querySelector('#play').addEventListener('click', function (e) {
   nbEssais += 1;
   console.log(nbEssais);
   
@@ -76,7 +77,8 @@ document.getElementById("play").onclick = function() {
     superInit();
     nbEssais = 0;
   }
-}
+  e.preventDefault();
+}, false);
 
 function playA(){
   yes = true;

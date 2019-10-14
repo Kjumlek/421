@@ -7,7 +7,6 @@ var animation = [];
 
 
 
-
 function superInit() {
       var faces = document.querySelectorAll('.face');
       for (var i = 0; i < faces.length; i++) {
@@ -18,42 +17,40 @@ function superInit() {
     yes = false;
 }
 
-
-
-
 function initA() {
-    nombreAleatoire[0] = Math.floor(Math.random() * 6 + 1);
-    animation[0] = "loop 0.5s linear infinite";
+  nombreAleatoire[0] = Math.floor(Math.random() * 6 + 1);
+  animation[0] = "loop 0.5s linear infinite";
 }
 function initB() {
-    nombreAleatoire[1] = Math.floor(Math.random() * 6 + 1);
-    animation[1] = "loop 0.5s linear infinite";
+  nombreAleatoire[1] = Math.floor(Math.random() * 6 + 1);
+  animation[1] = "loop 0.5s linear infinite";
 }
 function initC() {
-    nombreAleatoire[2] = Math.floor(Math.random() * 6 + 1);
-    animation[2] = "loop 0.5s linear infinite";
+  nombreAleatoire[2] = Math.floor(Math.random() * 6 + 1);
+  animation[2] = "loop 0.5s linear infinite";
 }
 
 
 
-
-//document.getElementById("play").onclick = function() {
-document.querySelector('#play').addEventListener('click', function (e) {
-  nbEssais += 1;
-  
-  
-  
-  if (keep[0] ==false){
+function possibleA(){
+  if (keep[0] == false){
     playA();  
-  }
-  if (keep[1] ==false){
+  }  
+}
+function possibleB(){
+  if (keep[1] == false){
     playB();  
   }  
-  if (keep[2] ==false){
+}
+function possibleC(){
+  if (keep[2] == false){
     playC();  
-  }
-  
-    
+  }  
+}
+
+
+
+function partieJoueur(){
   if (nbEssais == 3){
     keep = [true, true, true];
     setTimeout(function(){
@@ -65,20 +62,31 @@ document.querySelector('#play').addEventListener('click', function (e) {
     }, 1000);
   }
   else if (nbEssais > 3){
-
     document.getElementById("diceA").style.animation = "loop 0.5s linear infinite";
     document.getElementById("diceB").style.animation = "loop 0.5s linear infinite";
-    document.getElementById("diceC").style.animation = "loop 0.5s linear infinite";
-    
+    document.getElementById("diceC").style.animation = "loop 0.5s linear infinite";    
     initA();
     initB();
-    initC();
-    
+    initC();    
     superInit();
     nbEssais = 0;
-  }
+  }  
+}
+
+
+
+//document.getElementById("play").onclick = function() {
+document.querySelector('#play').addEventListener('click', function (e) {
+  nbEssais += 1;
+  console.log(nbEssais);
+  possibleA();
+  possibleB();
+  possibleC();
+  partieJoueur();
   e.preventDefault();
 }, false);
+
+
 
 function playA(){
   yes = true;
@@ -158,6 +166,8 @@ function playC(){
   }, 1000);
 }
 
+
+
 document.getElementById("diceA").addEventListener("animationiteration", function() {
     document.getElementById("diceA").style.animation = animation[0];
 });
@@ -199,7 +209,7 @@ document.getElementById("diceC").onclick = function() {
   }
 }
 document.getElementById("backtoback").onclick = function() {
-  console.log(nbEssais);
+  
 }
 
 initA();

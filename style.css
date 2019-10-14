@@ -1,0 +1,267 @@
+/*{
+    border: 1px solid red;
+}*/
+
+body{
+    background-color: black;
+    padding : 0;
+    margin: 0;
+    display: flex;
+}
+#play {
+    background-color: red;
+    opacity: 0.7;
+    height: 40px;
+    width: 80px;
+    border-radius: 4px;
+    border: 4px solid white;
+}
+#play:hover {
+    opacity: 0.8;
+    height: 42px;
+    width: 84px;
+    margin: -2px;
+}
+#play:active {
+    background-color: white;
+}
+h1, p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 80px;
+    /*color: white;*/
+    color: #1c0502;
+    text-shadow: -0.05rem -0.05rem 1px #ed2b12,
+    0.05rem -0.05rem 1px #ed2b12,
+    -0.05rem 0.05rem 1px #ed2b12,
+    0.05rem 0.05rem 1px #ed2b12,
+    0 0 15px #630100,
+    0 0 20px #450100;
+    
+}
+p{
+    font-size: 30px;
+    text-align: center;
+}
+#box-text{
+    margin: 40px;
+}
+#animateTool{
+    animation: colorChange 2s ease; 
+}
+@keyframes colorChange{
+    0% {background-color: #28aef9;}
+    1% {background-color: red;}
+    100% {background-color: black;}
+}
+#animateTool2{
+    animation: colorChange2 2s ease; 
+}
+@keyframes colorChange2{
+    0% {background-color: #28aef9;}
+    1% {background-color: green;}
+    100% {background-color: black;}
+}
+.container{
+    flex-direction: column;
+    height: 660px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    animation: charge 8s ease;
+    transform-style: preserve-3d;
+}
+.dices-box{
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+}
+@keyframes charge{
+    from {perspective: 10px;}
+    to {perspective: 1000px;}
+}
+.container *{
+    margin: auto;
+}
+.dice{
+    margin: 40px;
+    height: 80px;
+    width: 80px;
+    position: relative;
+    
+    transform-style: preserve-3d;
+    animation: loop 0.5s linear infinite;
+    transform: rotateY(360deg) rotateX(360deg);
+}
+@keyframes loop{
+    from{transform: rotateY(0deg) rotateX(0deg);}
+    to{transform: rotateY(360deg) rotateX(360deg);}
+}
+@keyframes loop2{
+    from{transform: rotateY(0deg) rotateX(0deg);}
+    to{transform: rotateY(180deg) rotateX(360deg);}
+}
+@keyframes loop3{
+    from{transform: rotateY(0deg) rotateX(0deg);}
+    to{transform: rotateY(90deg) rotateX(360deg);}
+}
+@keyframes loop4{
+    from{transform: rotateY(0deg) rotateX(0deg);}
+    to{transform: rotateY(360deg) rotateX(90deg);}
+}
+@keyframes loop5{
+    from{transform: rotateY(0deg) rotateX(0deg);}
+    to{transform: rotateY(270deg) rotateX(360deg);}
+}
+@keyframes loop6{
+    from{transform: rotateY(0deg) rotateX(0deg);}
+    to{transform: rotateY(360deg) rotateX(270deg);}
+}
+.face{
+    background-color: red;
+    height: 80px;
+    width: 80px;
+    border: 4px solid white;
+    opacity: 0.7;
+    box-sizing: border-box;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    animation: rainbow 8s linear infinite;
+    /*filter: hue-rotate(0deg);*/
+}
+.faceBlue{
+    background-color: blue;
+}
+/*@keyframes rainbow{
+    from{filter: hue-rotate(0deg);}
+    to{filter: hue-rotate(360deg);}
+}*/
+.front{
+    transform: translateZ(40px) rotateY(0deg);
+    background-image: none;
+    background-size: 100%;
+}
+.left{
+    transform: translateX(-40px) rotateY(270deg);
+    background-image: none;
+    background-size: 100%;
+}
+.right{
+    transform: translateX(40px) rotateY(-270deg);
+    background-image: none;
+    background-size: 100%;
+}
+.back{
+    transform: translateZ(-40px) rotateY(180deg); 
+    background-image: none;
+    background-size: 100%;
+    tra
+}
+.top{
+    transform: translateY(40px) rotateX(90deg);
+    background-image: none;
+    background-size: 100%;
+}
+.floor{
+    transform: translateY(-40px) rotateX(-90deg);
+    background-image: none;
+    background-size: 100%;
+}
+.face>div{
+    background-color: white;
+    height: 14px;
+    width: 14px;
+    position: absolute;
+    border-radius: 20px;
+}
+.front>div{
+    top:28px;
+    left: 28px;
+}
+.left>div:nth-child(1){
+    top: 8px;
+    left: 8px;    
+}
+.left>div:nth-child(2){
+    top: 28px;
+    left: 28px;    
+}
+.left>div:nth-child(3){
+    bottom: 8px;
+    right: 8px;    
+}
+.right>div:nth-child(1){
+    top: 8px;
+    left: 8px;    
+}
+.right>div:nth-child(2){
+    top: 28px;
+    left: 28px;    
+}
+.right>div:nth-child(3){
+    bottom: 8px;
+    right: 8px;    
+}
+.right>div:nth-child(4){
+    bottom: 8px;
+    left: 8px;    
+}
+.right>div:nth-child(5){
+    top: 8px;
+    right: 8px;    
+}
+.back>div:nth-child(1){
+    top: 8px;
+    left: 8px;    
+}
+.back>div:nth-child(2){
+    bottom: 8px;
+    right: 8px;    
+}
+.top>div:nth-child(1){
+    top: 8px;
+    left: 8px;    
+}
+.top>div:nth-child(2){
+    bottom: 8px;
+    right: 8px;    
+}
+.top>div:nth-child(3){
+    bottom: 8px;
+    left: 8px;    
+}
+.top>div:nth-child(4){
+    top: 8px;
+    right: 8px;
+}
+.floor>div:nth-child(1){
+    top: 8px;
+    left: 8px;    
+}
+.floor>div:nth-child(2){
+    top: 28px;
+    left: 8px;    
+}
+.floor>div:nth-child(3){
+    bottom: 8px;
+    left: 8px;    
+}
+.floor>div:nth-child(4){
+    top: 8px;
+    right: 8px;    
+}
+.floor>div:nth-child(5){
+    top: 28px;
+    right: 8px;    
+}
+.floor>div:nth-child(6){
+    bottom: 8px;
+    right: 8px;    
+}

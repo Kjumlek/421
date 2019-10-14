@@ -5,7 +5,7 @@ var yes = false;
 var nombreAleatoire = [];
 var animation = [];
 
-
+var okButton = true;
 
 function superInit() {
       var faces = document.querySelectorAll('.face');
@@ -74,21 +74,23 @@ function partieJoueur(){
 }
 
 
-
 //document.getElementById("play").onclick = function() {
 document.querySelector('#play').addEventListener('click', function (e) {
-  nbEssais += 1;
-  console.log(nbEssais);
-  possibleA();
-  possibleB();
-  possibleC();
-  partieJoueur();
-  e.preventDefault();
+  if (okButton == true) {
+    nbEssais += 1;
+    console.log(nbEssais);
+    possibleA();
+    possibleB();
+    possibleC();
+    partieJoueur();
+    e.preventDefault();
+  }
 }, false);
 
 
 
 function playA(){
+  okButton = false;
   yes = true;
   document.getElementById("diceA").style.animation = "loop 0.5s linear infinite";
   initA();
@@ -112,9 +114,13 @@ function playA(){
       animation[0] = "loop6 1s linear 0s 1 normal forwards";
     }
   }, 1000);
+  setTimeout(function(){
+    okButton = true;
+  }, 2000);
 }
 
 function playB(){
+  okButton = false;
   yes = true;
   document.getElementById("diceB").style.animation = "loop 0.5s linear infinite";
   initB();
@@ -138,9 +144,13 @@ function playB(){
       animation[1] = "loop6 1s linear 0s 1 normal forwards";
     }
   }, 1000);
+  setTimeout(function(){
+    okButton = true;
+  }, 2000);
 }
 
 function playC(){
+  okButton = false;
   yes = true;
   document.getElementById("diceC").style.animation = "loop 0.5s linear infinite";
   initC();
@@ -164,6 +174,9 @@ function playC(){
       animation[2] = "loop6 1s linear 0s 1 normal forwards";
     }
   }, 1000);
+  setTimeout(function(){
+    okButton = true;
+  }, 2000);
 }
 
 
@@ -215,3 +228,5 @@ document.getElementById("backtoback").onclick = function() {
 initA();
 initB();
 initC();
+
+

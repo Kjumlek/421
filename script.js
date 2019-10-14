@@ -40,7 +40,7 @@ function initC() {
 //document.getElementById("play").onclick = function() {
 document.querySelector('#play').addEventListener('click', function (e) {
   nbEssais += 1;
-  console.log(nbEssais);
+  
   
   
   if (keep[0] ==false){
@@ -199,7 +199,7 @@ document.getElementById("diceC").onclick = function() {
   }
 }
 document.getElementById("backtoback").onclick = function() {
-  
+  console.log(nbEssais);
 }
 
 initA();

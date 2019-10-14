@@ -36,7 +36,22 @@ h1, p {
     0.05rem 0.05rem 1px #ed2b12,
     0 0 15px #630100,
     0 0 20px #450100;
+    animation: neon 1s alternate infinite;
     
+}
+@keyframes neon{
+    from{text-shadow: -0.05rem -0.05rem 1px #ed2b12,
+    0.05rem -0.05rem 1px #ed2b12,
+    -0.05rem 0.05rem 1px #ed2b12,
+    0.05rem 0.05rem 1px #ed2b12,
+    0 0 15px #630100,
+    0 0 20px #450100;}
+    to{text-shadow: -0.05rem -0.05rem 1px #ff2b12,
+    0.05rem -0.05rem 1px #ff2b12,
+    -0.05rem 0.05rem 1px #ff2b12,
+    0.05rem 0.05rem 1px #ff2b12,
+    0 0 20px #800100,
+    0 0 30px #600100;}
 }
 p{
     font-size: 30px;
@@ -44,22 +59,6 @@ p{
 }
 #box-text{
     margin: 40px;
-}
-#animateTool{
-    animation: colorChange 2s ease; 
-}
-@keyframes colorChange{
-    0% {background-color: #28aef9;}
-    1% {background-color: red;}
-    100% {background-color: black;}
-}
-#animateTool2{
-    animation: colorChange2 2s ease; 
-}
-@keyframes colorChange2{
-    0% {background-color: #28aef9;}
-    1% {background-color: green;}
-    100% {background-color: black;}
 }
 .container{
     flex-direction: column;

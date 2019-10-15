@@ -4,8 +4,21 @@ var yes = false;
 
 var nombreAleatoire = [];
 var animation = [];
+var clickAState = 0;
+var clickBState = 0;
+var clickCState = 0;
 
 var okButton = true;
+
+var slider = document.getElementById("myRange");
+var outputA = document.getElementById("valueA");
+var outputB = document.getElementById("valueB");
+outputA.innerHTML = slider.value;
+outputB.innerHTML = slider.value;
+slider.oninput = function() {
+  outputA.innerHTML = this.value;
+  outputB.innerHTML = this.value * -1;
+}
 
 function superInit() {
       var faces = document.querySelectorAll('.face');
@@ -194,32 +207,65 @@ document.getElementById("diceC").addEventListener("animationiteration", function
 
 document.getElementById("diceA").onclick = function() {
   if (yes == true){
-    var faces = document.querySelectorAll('#diceA>.face');     
+    var faces = document.querySelectorAll('#diceA>.face');
+    if (clickAState ==0){      
       for (var i = 0; i < faces.length; i++) {
         faces[i].style.backgroundColor = "black";
         faces[i].style.opacity = "0.9";
       }
       keep[0] = true;
+      clickAState = 1;
+    }
+    else {
+      for (var f = 0; f < faces.length; f++) {
+        faces[f].style.backgroundColor = "red";
+        faces[f].style.opacity = "0.7";
+      }
+      keep[0] = false;
+      clickAState = 0;
+    }
   }
 }
 document.getElementById("diceB").onclick = function() {
   if (yes == true){
-    var faces = document.querySelectorAll('#diceB>.face');      
+    var faces = document.querySelectorAll('#diceB>.face');
+    if (clickBState ==0){      
       for (var i = 0; i < faces.length; i++) {
         faces[i].style.backgroundColor = "black";
         faces[i].style.opacity = "0.9";
       }
       keep[1] = true;
+      clickBState = 1;
+    }
+    else {
+      for (var f = 0; f < faces.length; f++) {
+        faces[f].style.backgroundColor = "red";
+        faces[f].style.opacity = "0.7";
+      }
+      keep[1] = false;
+      clickBState = 0;
+    }
   }
 }
 document.getElementById("diceC").onclick = function() {
   if (yes == true){
-    var faces = document.querySelectorAll('#diceC>.face');      
+    var faces = document.querySelectorAll('#diceC>.face');
+    if (clickCState ==0){      
       for (var i = 0; i < faces.length; i++) {
         faces[i].style.backgroundColor = "black";
         faces[i].style.opacity = "0.9";
       }
       keep[2] = true;
+      clickCState = 1;
+    }
+    else {
+      for (var f = 0; f < faces.length; f++) {
+        faces[f].style.backgroundColor = "red";
+        faces[f].style.opacity = "0.7";
+      }
+      keep[2] = false;
+      clickCState = 0;
+    }
   }
 }
 document.getElementById("backtoback").onclick = function() {
